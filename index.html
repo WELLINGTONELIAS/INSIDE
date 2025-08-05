@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellington Elias - Consultor de Negócios, Marketing e Finanças</title>
+    <meta name="description" content="Wellington Elias - Especialista em consultoria financeira, marketing digital e soluções de negócios em Campinas. Consórcios, proteção veicular e casa própria.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo-wellington.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/logo-wellington.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1E40AF;
+            --primary-blue-light: #3B82F6;
+            --secondary-blue: #1E3A8A;
+            --accent-blue: #60A5FA;
+            --success-green: #059669;
+            --orange-accent: #EA580C;
+            --white: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --gradient-primary: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+            --gradient-light: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+            --glass-white: rgba(255, 255, 255, 0.9);
+            --blur-subtle: blur(8px);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--glass-white);
+            backdrop-filter: var(--blur-subtle);
+            border-bottom: 1px solid var(--gray-200);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+            color: var(--primary-blue-light);
+        }
+
+        .logo img {
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            margin-right: 0.75rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section com Slide Full Width */
+        .hero {
+            background: var(--light-gray);
+            padding: 100px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Slide de Ofertas - Full Width */
+        .offers-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            z-index: 2;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide-image {
+            width: 60%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .slide-content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .slide-content::after {
+            content: '';
+            position: absolute;
+            right: -50px;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            background: var(--gradient-primary);
+            clip-path: polygon(0 0, 50% 0, 0 100%);
+        }
+
+        .slide-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .slide-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .slide-cta {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            align-self: flex-start;
+        }
+
+        .slide-cta:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Slide Navigation */
+        .slide-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slide-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        /* Slide Progress Bar */
+        .slide-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent-blue);
+            width: 0%;
+            transition: width 10s linear;
+            z-index: 3;
+        }
+
+        /* Quick Access - Horizontal abaixo do slide */
+        .quick-access {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quick-access-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .quick-access-title i {
+            color: var(--primary-blue);
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quick-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quick-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .quick-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .quick-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            border-color: var(--primary-blue-light);
+        }
+
+        .quick-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-light);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .quick-card:hover .quick-icon {
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .quick-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-8px);
+            border-color: var(--primary-blue-light);
+        }
+
+        .service-card.featured {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-color: var(--primary-blue);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card.featured::before {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scaleX(1);
+        }
+
+        /* Card de Apresentação do Wellington */
+        .wellington-card {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-color: var(--primary-blue);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wellington-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scaleX(1);
+        }
+
+        .wellington-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .wellington-card:hover .wellington-photo {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .wellington-card .service-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .wellington-card .service-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .wellington-card .service-link {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .wellington-card .service-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card.featured .service-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .service-card.featured:hover .service-icon {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .service-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .service-card.featured .service-title {
+            color: var(--white);
+        }
+
+        .service-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-card.featured .service-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card.featured .service-link {
+            color: var(--white);
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--gray-900);
+            padding: 80px 0;
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            backdrop-filter: var(--blur-subtle);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--light-gray);
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-info h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-primary);
+            padding: 100px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-blue);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            background: var(--accent-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.4);
+            border-color: transparent;
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            box-shadow: 0 5px 15px rgba(240, 148, 51, 0.4);
+        }
+
+        .social-link.linkedin:hover {
+            background: #0077B5;
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+        }
+
+        .social-link.youtube:hover {
+            background: #FF0000;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .slide-content {
+                width: 55%;
+                padding: 2rem;
+            }
+            
+            .slide-image {
+                width: 55%;
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 0 80px;
+            }
+
+            .slide {
+                height: 300px;
+            }
+
+            .slide-content {
+                width: 100%;
+                position: relative;
+                padding: 2rem;
+            }
+
+            .slide-content::after {
+                display: none;
+            }
+
+            .slide-image {
+                width: 100%;
+                height: 150px;
+                position: relative;
+                opacity: 0.2;
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .quick-card {
+                padding: 1rem;
+            }
+
+            .quick-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card.featured {
+                transform: none;
+            }
+
+            .wellington-card {
+                transform: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-white[href*="mailto"] {
+                display: none;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wellington-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .slide-title {
+                font-size: 1.5rem;
+            }
+
+            .slide-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#inicio" class="logo" id="logoContainer">
+                    <img src="assets/images/logo-wellington.png" alt="Wellington Elias" 
+                         style="height: 40px; width: auto; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-right: 0.75rem;"
+                         onload="this.style.display='block'; this.nextElementSibling.style.display='none';" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    
+                    <div class="logo-icon" style="display: none;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    
+                    <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--primary-blue);">Wellington Elias</span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Início</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <a href="https://wa.me/5519981721334?text=Olá Wellington! Vi seu site e gostaria de conversar sobre seus serviços." class="cta-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Falar Agora
+                </a>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <!-- Slide de Ofertas - Full Width -->
+            <div class="offers-slider" id="offersSlider">
+                <!-- Slides serão carregados dinamicamente via JavaScript -->
+                <div class="slide active">
+                    <div class="slide-content">
+                        <h2 class="slide-title">Carregando Ofertas...</h2>
+                        <p class="slide-description">Aguarde enquanto carregamos nossas melhores ofertas para você.</p>
+                        <a href="#" class="slide-cta">Aguarde...</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" alt="Carregando" class="slide-image">
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="slide-nav" id="slideNav">
+                    <span class="slide-dot active" data-slide="0"></span>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="slide-progress" id="slideProgress"></div>
+            </div>
+
+            <!-- Acessos Rápidos - Linha Horizontal Abaixo -->
+            <div class="quick-access">
+                <h3 class="quick-access-title">
+                    <i class="fas fa-rocket"></i>
+                    Acesso Rápido às Soluções
+                </h3>
+                
+                <div class="quick-grid">
+                    <a href="https://consultoria.wellingtonelias.com.br/proauto" class="quick-card" target="_blank">
+                        <div class="quick-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="quick-content">
+                            <h3>PROAUTO</h3>
+                            <p>Proteção Veicular 24h</p>
+                        </div>
+                    </a>
+
+                    <a href="https://consultoria.wellingtonelias.com.br/ademicon" class="quick-card">
+                        <div class="quick-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="quick-content">
+                            <h3>ADEMICON</h3>
+                            <p>Consórcios sem Juros</p>
+                        </div>
+                    </a>
+
+                    <a href="https://consultoria.wellingtonelias.com.br/proauto" class="quick-card">
+                        <div class="quick-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="quick-content">
+                            <h3>GRAN VIC</h3>
+                            <p>Novo Lançamento Sumaré</p>
+                        </div>
+                    </a>
+
+                    <a href="#contato" class="quick-card">
+                        <div class="quick-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="quick-content">
+                            <h3>CONSULTORIA</h3>
+                            <p>Atendimento Personalizado</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services scroll-reveal" id="servicos">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Card de Apresentação do Wellington - Primeiro -->
+                <div class="service-card wellington-card">
+                    <img src="assets/images/wellington-foto.jpg" alt="Wellington Elias" class="wellington-photo" 
+                         onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&h=120&q=80&fit=facearea&facepad=2';">
+                    <h3 class="service-title">Wellington Elias</h3>
+                    <p class="service-description">Consultor especializado em negócios, marketing e finanças com mais de 10 anos de experiência. Transformo sonhos em realidade através de planejamento estratégico e soluções financeiras personalizadas.</p>
+                    <a href="#contato" class="service-link">
+                        Conversar Comigo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Consórcios - Featured -->
+                <div class="service-card featured">
+                    <div class="service-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="service-title">Consórcios Ademicon</h3>
+                    <p class="service-description">Consultor autorizado da maior administradora independente do Brasil. Sem juros, apenas taxa administrativa. Aceita negativados e documentos simples: RG e CPF.</p>
+                    <a href="https://consultoria.wellingtonelias.com.br/ademicon" class="service-link">
+                        Simular Consórcio <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Casa Própria -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Gran VIC Nova Veneza</h3>
+                    <p class="service-description">Novo lançamento em Sumaré com lazer completo (30 itens). Opções com suíte, varanda e garden. Condições exclusivas de lançamento!</p>
+                    <a href="https://consultoria.wellingtonelias.com.br/proauto" class="service-link">
+                        Conhecer Empreendimento <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Proauto -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">Proteção Veicular Proauto</h3>
+                    <p class="service-description">Maior proteção veicular do Brasil! Economia até 60%, menor prazo de indenização (30 dias), peças originais, 153 filiais. Sem burocracias do perfil de condutor.</p>
+                    <a href="https://consultoria.wellingtonelias.com.br/proauto" class="service-link" target="_blank">
+                        Simular Proteção <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Consultoria Personalizada -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">Consultoria Personalizada</h3>
+                    <p class="service-description">Atendimento individual focado em suas necessidades específicas. Estratégias customizadas para seus objetivos pessoais ou empresariais.</p>
+                    <a href="#contato" class="service-link">
+                        Agendar Consultoria <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats scroll-reveal">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <div class="stat-label">Clientes Atendidos</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">R$ 15mi+</span>
+                    <div class="stat-label">Em Negócios Gerados</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <div class="stat-label">Satisfação dos Clientes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials scroll-reveal" id="sobre">
+        <div class="container">
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Wellington me ajudou a conseguir meu apartamento no Gran VIC Nova Veneza. O empreendimento é incrível, com lazer completo e localização privilegiada em Sumaré. Recomendo!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MC</div>
+                        <div class="testimonial-info">
+                            <h4>Maria Clara</h4>
+                            <p>Cliente VIC Engenharia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Através do consórcio Ademicon consegui trocar meu carro sem financiamento e sem juros. Wellington explicou todo o processo e a Ademicon é realmente confiável!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RS</div>
+                        <div class="testimonial-info">
+                            <h4>Ricardo Santos</h4>
+                            <p>Cliente Ademicon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Economizei mais de 50% comparado ao seguro tradicional com a Proauto! Quando precisei, pagaram em 25 dias com peças originais. Wellington escolheu a melhor proteção!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JM</div>
+                        <div class="testimonial-info">
+                            <h4>João Martins</h4>
+                            <p>Cliente Proauto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-section scroll-reveal" id="contato">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para Transformar seus Resultados?</h2>
+                <p class="cta-description">Vamos conversar sobre como posso ajudar você a alcançar seus objetivos. Entre em contato agora e descubra as melhores soluções para seu crescimento.</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5519981721334?text=Olá Wellington! Gostaria de agendar uma conversa sobre consultoria." class="btn-white" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp (19) 98172-1334
+                    </a>
+                    <a href="mailto:wellington@wellingtonelias.com.br" class="btn-white">
+                        <i class="fas fa-envelope"></i>
+                        Enviar E-mail
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Wellington Elias</h4>
+                    <p>Consultor especializado em negócios, marketing e finanças com mais de 10 anos de experiência no mercado.</p>
+                    <p>Transformando objetivos em resultados desde 2014.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/wellingtoneliasofc" class="social-link instagram" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/wellelias/" class="social-link linkedin" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@wellingtoneliasmkt" class="social-link youtube" target="_blank" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Principais Serviços</h4>
+                    <a href="https://consultoria.wellingtonelias.com.br/ademicon">Consórcios Ademicon</a><br>
+                    <a href="https://consultoria.wellingtonelias.com.br/proauto">Gran VIC Nova Veneza</a><br>
+                    <a href="https://consultoria.wellingtonelias.com.br/proauto" target="_blank">Proteção Veicular Proauto</a><br>
+                    <a href="#contato">Consultoria Personalizada</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (19) 98172-1334</p>
+                    <p><i class="fas fa-envelope"></i> wellington@wellingtonelias.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Campinas, São Paulo</p>
+                    <p><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Certificações</h4>
+                    <p>✓ Consultor Autorizado Ademicon</p>
+                    <p>✓ Consultor Credenciado Proauto</p>
+                    <p>✓ Parceiro Oficial VIC Engenharia</p>
+                    <p>✓ Especialista em Negócios</p>
+                    <p>✓ +10 anos transformando resultados</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wellington Elias. Todos os direitos reservados. | Desenvolvido com foco em resultados.</p>
+                <p style="margin-top: 0.5rem; opacity: 0.8;">🚀 Siga-nos nas redes sociais para dicas exclusivas de negócios e finanças!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5519981721334?text=Olá Wellington! Vi seu site e gostaria de conversar." class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <script>
+        // ===================================
+        // SISTEMA DE OFERTAS COM LOCALSTORAGE
+        // ===================================
+        
+        class OfferSystem {
+            constructor() {
+                this.slides = [];
+                this.currentSlide = 0;
+                this.slideInterval = null;
+                this.progressInterval = null;
+                this.slideDuration = 10000; // 10 segundos
+                this.init();
+            }
+
+            init() {
+                this.loadOffers();
+                this.setupSlider();
+                this.setupEventListeners();
+            }
+
+            // Carrega ofertas do localStorage
+            loadOffers() {
+                try {
+                    const savedOffers = localStorage.getItem('wellington_offers');
+                    if (savedOffers) {
+                        const offers = JSON.parse(savedOffers);
+                        this.slides = offers.filter(offer => offer.active);
+                    }
+                    
+                    // Se não há ofertas, usa ofertas padrão
+                    if (this.slides.length === 0) {
+                        this.createDefaultOffers();
+                    }
+                } catch (error) {
+                    console.error('Erro ao carregar ofertas:', error);
+                    this.createDefaultOffers();
+                }
+            }
+
+            // Cria ofertas padrão se não houver no localStorage
+            createDefaultOffers() {
+                const defaultOffers = [
+                    {
+                        id: 1,
+                        title: "Gran VIC Nova Veneza",
+                        description: "Novo empreendimento em Sumaré com lazer completo (30 itens). Opções com suíte, varanda e garden. Condições exclusivas de lançamento!",
+                        buttonText: "Garanta a Sua",
+                        buttonLink: "https://consultoria.wellingtonelias.com.br/proauto",
+                        image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
+                        active: true,
+                        order: 1
+                    },
+                    {
+                        id: 2,
+                        title: "Consórcio Ademicon",
+                        description: "Maior administradora independente do Brasil. Sem juros, apenas taxa administrativa. Documentos: RG e CPF. Aceita negativados!",
+                        buttonText: "Simular Agora",
+                        buttonLink: "https://consultoria.wellingtonelias.com.br/ademicon",
+                        image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
+                        active: true,
+                        order: 2
+                    },
+                    {
+                        id: 3,
+                        title: "Proteção Veicular Proauto",
+                        description: "Menor prazo de indenização do Brasil (30 dias)! Peças originais, 153 filiais, +250 mil motoristas protegidos. Sem perfil de condutor.",
+                        buttonText: "Simular Proteção",
+                        buttonLink: "https://consultoria.wellingtonelias.com.br/proauto",
+                        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
+                        active: true,
+                        order: 3
+                    }
+                ];
+
+                // Salva no localStorage
+                localStorage.setItem('wellington_offers', JSON.stringify(defaultOffers));
+                this.slides = defaultOffers;
+            }
+
+            // Configura o slider
+            setupSlider() {
+                const slider = document.getElementById('offersSlider');
+                const slideNav = document.getElementById('slideNav');
+                
+                if (!slider || this.slides.length === 0) return;
+
+                // Limpa conteúdo existente
+                slider.innerHTML = '';
+                slideNav.innerHTML = '';
+
+                // Cria slides
+                this.slides.forEach((slide, index) => {
+                    const slideElement = this.createSlideElement(slide, index === 0);
+                    slider.appendChild(slideElement);
+
+                    // Cria dot de navegação
+                    const dot = document.createElement('span');
+                    dot.className = `slide-dot ${index === 0 ? 'active' : ''}`;
+                    dot.setAttribute('data-slide', index);
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                    slideNav.appendChild(dot);
+                });
+
+                // Adiciona barra de progresso
+                const progressBar = document.createElement('div');
+                progressBar.className = 'slide-progress';
+                progressBar.id = 'slideProgress';
+                slider.appendChild(progressBar);
+
+                // Adiciona navegação
+                slider.appendChild(slideNav);
+
+                // Inicia rotação automática se há mais de um slide
+                if (this.slides.length > 1) {
+                    this.startAutoSlide();
+                }
+            }
+
+            // Cria elemento do slide
+            createSlideElement(slide, isActive = false) {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = `slide ${isActive ? 'active' : ''}`;
+                
+                slideDiv.innerHTML = `
+                    <div class="slide-content">
+                        <h2 class="slide-title">${slide.title}</h2>
+                        <p class="slide-description">${slide.description}</p>
+                        <a href="${slide.buttonLink}" class="slide-cta" ${slide.buttonLink.startsWith('http') ? 'target="_blank"' : ''}>${slide.buttonText}</a>
+                    </div>
+                    <img src="${slide.image}" alt="${slide.title}" class="slide-image" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80'">
+                `;
+                
+                return slideDiv;
+            }
+
+            // Vai para slide específico
+            goToSlide(index) {
+                if (index === this.currentSlide) return;
+
+                // Remove classe active do slide atual
+                const currentSlideElement = document.querySelector('.slide.active');
+                const currentDot = document.querySelector('.slide-dot.active');
+                
+                if (currentSlideElement) currentSlideElement.classList.remove('active');
+                if (currentDot) currentDot.classList.remove('active');
+
+                // Adiciona classe active ao novo slide
+                const slides = document.querySelectorAll('.slide');
+                const dots = document.querySelectorAll('.slide-dot');
+                
+                if (slides[index]) slides[index].classList.add('active');
+                if (dots[index]) dots[index].classList.add('active');
+
+                this.currentSlide = index;
+                this.restartProgress();
+            }
+
+            // Próximo slide
+            nextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.slides.length;
+                this.goToSlide(nextIndex);
+            }
+
+            // Inicia rotação automática
+            startAutoSlide() {
+                this.slideInterval = setInterval(() => {
+                    this.nextSlide();
+                }, this.slideDuration);
+                
+                this.startProgress();
+            }
+
+            // Para rotação automática
+            stopAutoSlide() {
+                if (this.slideInterval) {
+                    clearInterval(this.slideInterval);
+                    this.slideInterval = null;
+                }
+                this.stopProgress();
+            }
+
+            // Inicia barra de progresso
+            startProgress() {
+                const progressBar = document.getElementById('slideProgress');
+                if (!progressBar) return;
+
+                progressBar.style.width = '0%';
+                progressBar.style.transition = `width ${this.slideDuration}ms linear`;
+                
+                setTimeout(() => {
+                    progressBar.style.width = '100%';
+                }, 50);
+            }
+
+            // Para barra de progresso
+            stopProgress() {
+                const progressBar = document.getElementById('slideProgress');
+                if (progressBar) {
+                    progressBar.style.transition = 'none';
+                    progressBar.style.width = '0%';
+                }
+            }
+
+            // Reinicia barra de progresso
+            restartProgress() {
+                this.stopProgress();
+                setTimeout(() => {
+                    this.startProgress();
+                }, 100);
+            }
+
+            // Configura event listeners
+            setupEventListeners() {
+                const slider = document.getElementById('offersSlider');
+                if (!slider) return;
+
+                // Pausa no hover
+                slider.addEventListener('mouseenter', () => {
+                    this.stopAutoSlide();
+                });
+
+                slider.addEventListener('mouseleave', () => {
+                    if (this.slides.length > 1) {
+                        this.startAutoSlide();
+                    }
+                });
+
+                // Escuta mudanças no localStorage (quando admin atualiza)
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'wellington_offers') {
+                        this.loadOffers();
+                        this.setupSlider();
+                    }
+                });
+            }
+
+            // Recarrega ofertas (chamado pelo admin)
+            reload() {
+                this.stopAutoSlide();
+                this.loadOffers();
+                this.setupSlider();
+            }
+        }
+
+        // ===================================
+        // INICIALIZAÇÃO E OUTRAS FUNCIONALIDADES
+        // ===================================
+
+        // Instância global do sistema de ofertas
+        let offerSystem;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializa sistema de ofertas
+            offerSystem = new OfferSystem();
+            
+            // Outras funcionalidades existentes
+            initOtherFeatures();
+        });
+
+        function initOtherFeatures() {
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Scroll reveal
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Analytics tracking
+            function trackClick(element, action) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', action, {
+                        'event_category': 'engagement',
+                        'event_label': element
+                    });
+                }
+                console.log(`Tracked: ${action} - ${element}`);
+            }
+
+            // Track clicks
+            document.querySelectorAll('.service-link, .quick-card, a[href*="wa.me"], .social-link, .slide-cta').forEach(link => {
+                link.addEventListener('click', function() {
+                    const text = this.textContent || this.querySelector('h3')?.textContent || this.title || 'slide-click';
+                    trackClick(text.trim(), 'click');
+                });
+            });
+        }
+
+        // ===================================
+        // FUNÇÕES GLOBAIS PARA COMUNICAÇÃO
+        // ===================================
+
+        // Função para recarregar ofertas (chamada pelo admin)
+        window.reloadOffers = function() {
+            if (offerSystem) {
+                offerSystem.reload();
+            }
+        };
+
+        // Função para obter ofertas atuais
+        window.getCurrentOffers = function() {
+            try {
+                const savedOffers = localStorage.getItem('wellington_offers');
+                return savedOffers ? JSON.parse(savedOffers) : [];
+            } catch (error) {
+                console.error('Erro ao obter ofertas:', error);
+                return [];
+            }
+        };
+
+        // Função para salvar ofertas
+        window.saveOffers = function(offers) {
+            try {
+                localStorage.setItem('wellington_offers', JSON.stringify(offers));
+                // Dispara evento para atualizar outras abas
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: 'wellington_offers',
+                    newValue: JSON.stringify(offers)
+                }));
+                return true;
+            } catch (error) {
+                console.error('Erro ao salvar ofertas:', error);
+                return false;
+            }
+        };
+
+    </script>
+</body>
+</html>
